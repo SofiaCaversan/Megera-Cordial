@@ -1,0 +1,6 @@
+{
+  "name": "Megera Cordial",
+  "description": "Distribuição digital da áudio-ficção em 3 atos e zine editorial Megera Cordial — projeto experimental em Audiovisual por Isabelle Olvera e Sofia Caversan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

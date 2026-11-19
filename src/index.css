@@ -1,0 +1,292 @@
+@import "tailwindcss";
+
+:root {
+  --mc-gold: #E3CD32;
+  --mc-pink: #F8CCE1;
+  --mc-blue: #2071B8;
+  --mc-paper: #F7F5F0;
+  --mc-ink: #1A1A1A;
+  --mc-muted: #5C5952;
+  --mc-hairline: rgba(26, 26, 26, 0.14);
+}
+
+@layer base {
+  html {
+    background-color: var(--mc-paper);
+    color: var(--mc-ink);
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--mc-paper);
+    background-image:
+      radial-gradient(rgba(26, 26, 26, 0.04) 1px, transparent 0),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(247, 245, 240, 0.85) 100%);
+    background-size: 24px 24px, 100% 100%;
+    overflow-x: hidden;
+  }
+}
+
+@font-face {
+  font-family: 'SloopScriptCustom';
+  src: url('/assets/aistudio/sloop-script.ttf.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'VintageMachineCustom';
+  src: url('/assets/aistudio/vintage-machine.otf.otf') format('opentype');
+  font-weight: 300 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-script {
+  font-family: 'SloopScriptCustom', 'Pinyon Script', cursive;
+  font-weight: normal;
+}
+
+.font-editorial {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.font-mono-ui {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+.font-galix {
+  font-family: "Galix Mono", "Space Mono", "IBM Plex Mono", ui-monospace, monospace;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+}
+
+.font-vintage {
+  font-family: 'VintageMachineCustom', 'Zilla Slab', 'Cormorant Garamond', serif;
+  font-weight: 300;
+  letter-spacing: 0.015em;
+}
+
+/* 3D Perspective & Card Flip Helpers */
+.perspective-1400 {
+  perspective: 1400px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.perspective-2200 {
+  perspective: 2200px;
+}
+
+/* Coated Magazine (Couche) Paper Sheen & Fine Print Halftone Grain */
+.zine-couche-sheen {
+  background-image:
+    linear-gradient(
+      116deg,
+      rgba(255, 255, 255, 0.24) 0%,
+      rgba(255, 255, 255, 0.03) 30%,
+      rgba(255, 255, 255, 0.19) 48%,
+      rgba(255, 255, 255, 0.02) 66%,
+      rgba(0, 0, 0, 0.05) 100%
+    ),
+    radial-gradient(
+      ellipse at 28% 18%,
+      rgba(255, 255, 255, 0.22) 0%,
+      transparent 55%
+    );
+}
+
+.zine-couche-grain {
+  background-image:
+    radial-gradient(rgba(26, 26, 26, 0.14) 0.55px, transparent 0),
+    radial-gradient(rgba(255, 255, 255, 0.28) 0.45px, transparent 0),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.015) 0px,
+      rgba(0, 0, 0, 0.015) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  background-size: 9px 9px, 13px 13px, 100% 100%;
+  background-position: 0 0, 4px 5px, 0 0;
+}
+
+.zine-page-hi-res-img,
+.stf__parent canvas {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+}
+
+.zine-page-hi-res-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Acrylic Shelf & Jewel Case Materiality */
+.acrylic-surface {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.34) 48%,
+    rgba(248, 204, 225, 0.38) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Windows Media Player Pink Acrylic Reinterpretation */
+.wmp-shell {
+  background: linear-gradient(
+    180deg,
+    #fff2f8 0%,
+    #f8cce1 18%,
+    #edb5d1 50%,
+    #f8cce1 84%,
+    #fde7f2 100%
+  );
+  box-shadow:
+    0 24px 48px -18px rgba(32, 113, 184, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.94),
+    inset 0 -1px 0 rgba(32, 113, 184, 0.32);
+}
+
+.wmp-gloss-btn {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(253, 232, 242, 0.88) 49%,
+    rgba(243, 188, 215, 0.9) 50%,
+    rgba(252, 234, 243, 0.96) 100%
+  );
+  box-shadow:
+    0 2px 5px rgba(32, 113, 184, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.wmp-gloss-btn:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 244, 210, 0.95) 49%,
+    rgba(227, 205, 50, 0.45) 50%,
+    rgba(255, 248, 220, 0.98) 100%
+  );
+}
+
+.wmp-play-orb {
+  background: radial-gradient(
+    circle at 35% 28%,
+    #7bb8f0 0%,
+    #2071B8 55%,
+    #114474 100%
+  );
+  box-shadow:
+    0 8px 18px -4px rgba(32, 113, 184, 0.55),
+    0 0 0 2px rgba(227, 205, 50, 0.65),
+    inset 0 2px 3px rgba(255, 255, 255, 0.72),
+    inset 0 -3px 6px rgba(9, 32, 58, 0.45);
+}
+
+/* Printed Zine / Editorial Magazine Cardstock Texture Overlay (applied over identity colors) */
+.zine-cardstock-surface {
+  background-image:
+    radial-gradient(rgba(26, 26, 26, 0.065) 0.65px, transparent 0),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.045) 0px,
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(26, 26, 26, 0.03) 0px,
+      rgba(26, 26, 26, 0.03) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    linear-gradient(
+      155deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0.02) 48%,
+      rgba(0, 0, 0, 0.09) 100%
+    );
+  background-size: 8px 8px, 100% 100%, 100% 100%, 100% 100%;
+  box-shadow:
+    0 20px 38px -14px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.36),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+}
+
+.card-back-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(26, 26, 26, 0.25) transparent;
+}
+
+.card-back-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.card-back-scroll::-webkit-scrollbar-thumb {
+  background: rgba(26, 26, 26, 0.25);
+  border-radius: 9999px;
+}
+
+/* Brushed Aluminum fallback texture */
+.brushed-aluminum {
+  background-color: #c8ccd0;
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.06) 1px,
+      rgba(0, 0, 0, 0.03) 1px,
+      rgba(0, 0, 0, 0.03) 3px
+    ),
+    linear-gradient(
+      115deg,
+      #aeb4ba 0%,
+      #e6e9ec 24%,
+      #b6bcc2 48%,
+      #eceff2 72%,
+      #a8aeb4 100%
+    );
+}
+
+@keyframes cd-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-cd-spin {
+  animation: cd-spin 7.5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-cd-spin {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
